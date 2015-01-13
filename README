@@ -1,4 +1,1 @@
-This is your new Play application
-=================================
-
-This file will be packaged with your application, when using `activator dist`.
+This is a simple Play Application which allows you to brwse through your data on AWS S3 by simply feeding your AWS Credentials.

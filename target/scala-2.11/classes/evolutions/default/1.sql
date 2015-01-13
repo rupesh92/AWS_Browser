@@ -7,6 +7,7 @@ create table bar (
   id                        varchar(255) not null,
   access                    varchar(255),
   secret                    varchar(255),
+  bucket_name               varchar(255),
   constraint pk_bar primary key (id))
 ;
 

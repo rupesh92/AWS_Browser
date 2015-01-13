@@ -6,7 +6,9 @@ import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.model.*;
+import com.amazonaws.services.s3.model.ListObjectsRequest;
+import com.amazonaws.services.s3.model.ObjectListing;
+import com.amazonaws.services.s3.model.S3ObjectSummary;
 import models.Bar;
 import play.data.Form;
 import play.mvc.Controller;
@@ -14,7 +16,6 @@ import play.mvc.Result;
 import views.html.index;
 import views.html.showDir;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import static play.data.Form.form;
@@ -39,10 +40,7 @@ public class Application extends Controller {
             bar.save();
             String accessKey = bar.access;
             String secretKey = bar.secret;
-            String bucketName = "cb-interview";
-            System.out.println("Access Key: " + accessKey);
-            accessKey = "AKIAJWDV5KLQUY6BEO3A";
-            secretKey = "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";
+            String bucketName = bar.bucketName;
             ClientConfiguration clientConfig = new ClientConfiguration();
             clientConfig.setProtocol(Protocol.HTTPS);
             clientConfig.setProxyHost("10.3.100.207");
@@ -51,15 +49,15 @@ public class Application extends Controller {
             AmazonS3 conn = new AmazonS3Client(credentials, clientConfig);
 
 
-            System.out.println("Connection setup done");
-            File file = new File("/home/rupesh/a");
-            PutObjectRequest putObject = new PutObjectRequest(bucketName, "tryPut", file);
-            ObjectMetadata metaData = new ObjectMetadata();
-            metaData.setContentType("application/pdf"); //binary data
-            putObject.setMetadata(metaData);
-            conn.putObject(putObject);
-
-            System.out.println("folder uploaded");
+//            System.out.println("Connection setup done");
+//            File file = new File("/home/rupesh/a");
+//            PutObjectRequest putObject = new PutObjectRequest(bucketName, "tryPut", file);
+//            ObjectMetadata metaData = new ObjectMetadata();
+//            metaData.setContentType("application/pdf"); //binary data
+//            putObject.setMetadata(metaData);
+//            conn.putObject(putObject);
+//
+//            System.out.println("folder uploaded");
             ListObjectsRequest listObjectsRequest = new ListObjectsRequest()
                     .withBucketName(bucketName);
 

@@ -14,4 +14,5 @@ public class Bar extends Model {
     public  String id;
     public String access;
     public String secret;
+    public String bucketName;
 }

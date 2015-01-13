@@ -39,13 +39,15 @@ Seq[Any](format.raw/*1.39*/("""
      """),format.raw/*11.6*/("""<label>Access ID:</label>
     <input name="access"></br>
     <label>Secret Key:</label>
-    <input name="secret"></br>
+    <input type="password" name="secret"></br>
+    <label>Bucket Name:</label>
+    <input name="bucketName"></br>
     <input type="submit">
-""")))}),format.raw/*16.2*/("""
+""")))}),format.raw/*18.2*/("""
 
 
 
-"""),format.raw/*20.1*/("""</body>
+"""),format.raw/*22.1*/("""</body>
 
 
 """))}
@@ -60,11 +62,11 @@ Seq[Any](format.raw/*1.39*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Tue Jan 13 16:37:40 IST 2015
+                  DATE: Tue Jan 13 17:48:36 IST 2015
                   SOURCE: /home/rupesh/Downloads/foobar/app/views/index.scala.html
-                  HASH: 4e312571e0a5048cf54a7a7241430cf8a982ec07
-                  MATRIX: 743->1|868->38|896->40|1004->122|1018->128|1069->170|1108->171|1141->177|1317->323|1348->327
-                  LINES: 26->1|29->1|31->3|38->10|38->10|38->10|38->10|39->11|44->16|48->20
+                  HASH: 4c8a6feb89454c4acf42e68aa98395683a625f0b
+                  MATRIX: 743->1|868->38|896->40|1004->122|1018->128|1069->170|1108->171|1141->177|1400->406|1431->410
+                  LINES: 26->1|29->1|31->3|38->10|38->10|38->10|38->10|39->11|46->18|50->22
                   -- GENERATED --
               */
           
