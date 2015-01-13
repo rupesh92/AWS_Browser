@@ -1,7 +1,7 @@
-This is a simple Play Application which allows you to brwse through your data on AWS S3 by simply feeding your AWS Credentials.
+This is a simple Play Application which allows you to browse through your data on AWS S3 by simply feeding your AWS Credentials.
 
 1. Download the latest play framework package from its official site.
-2. Add the path to this directly as an environment variable.
+2. Add the downloaded activator directory to your PATH.
 3. Clone the repository here.
 4. Move to the directory and run the following commands.
    activator ~run
