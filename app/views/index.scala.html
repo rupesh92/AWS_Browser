@@ -1,0 +1,22 @@
+@(userForm:play.data.Form[models.Bar])
+
+<!DOCTYPE html>
+<header>
+    <h1> Welcome to S3 Browser </h1>
+</header>
+
+<body>
+
+@helper.form(action = routes.Application.check()){
+     <label>Access ID:</label>
+    <input name="access"></br>
+    <label>Secret Key:</label>
+    <input name="secret"></br>
+    <input type="submit">
+}
+
+
+
+</body>
+
+
