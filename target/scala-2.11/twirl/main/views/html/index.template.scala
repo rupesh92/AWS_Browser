@@ -29,25 +29,78 @@ object index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Form
 Seq[Any](format.raw/*1.39*/("""
 
 """),format.raw/*3.1*/("""<!DOCTYPE html>
-<header>
-    <h1> Welcome to S3 Browser </h1>
-</header>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>S3 Browser</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-<body>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body class="container">
+<style>
 
-"""),_display_(/*10.2*/helper/*10.8*/.form(action = routes.Application.check())/*10.50*/{_display_(Seq[Any](format.raw/*10.51*/("""
-     """),format.raw/*11.6*/("""<label>Access ID:</label>
-    <input name="access"></br>
-    <label>Secret Key:</label>
-    <input type="password" name="secret"></br>
-    <label>Bucket Name:</label>
-    <input name="bucketName"></br>
-    <input type="submit">
-""")))}),format.raw/*18.2*/("""
+    .proxyDetails """),format.raw/*20.19*/("""{"""),format.raw/*20.20*/(""" """),format.raw/*20.21*/("""display:none; """),format.raw/*20.35*/("""}"""),format.raw/*20.36*/("""
+    """),format.raw/*21.5*/(""".check:checked+.proxyDetails"""),format.raw/*21.33*/("""{"""),format.raw/*21.34*/("""
+    """),format.raw/*22.5*/("""display:block;
+    """),format.raw/*23.5*/("""}"""),format.raw/*23.6*/("""
+"""),format.raw/*24.1*/("""</style>
+
+    <div class ="container">
+        <h1 class="head">Welcome to the S3 Browser</h1>
+        <div class="jumbotron">
+        """),_display_(/*29.10*/helper/*29.16*/.form(action = routes.Application.check())/*29.58*/{_display_(Seq[Any](format.raw/*29.59*/("""
+        """),format.raw/*30.9*/("""<form role="form" class="form-horizontal" >
+                <div class="form-group">
+                     <label for="accessId" class="inplabel">Access ID:</label>
+                    <input class="form-control" id="accessId" name="access" placeholder="AccessID">
+                </div>
+                <div class="form-group">
+                    <label for="secretKey" class="inplabel">Secret Key:</label>
+                    <input class="form-control" id = "secretKey" type="password" name="secret" placeholder="SecretKey">
+                </div>
+                <div class="form-group">
+                    <label for="bucket" class="inplabel">Bucket Name:</label>
+                    <input class="form-control" id="bucket" name="bucketName" placeholder="Bucket Name">
+                </div>
+
+                <div class="form-group">
+                    <label>Proxy Manual Configuration</label>
+                    <input class="check" type="checkbox" name="checkbox" >
 
 
 
-"""),format.raw/*22.1*/("""</body>
+                    <div class="proxyDetails" >
+                        <div class="form-group">
+                            <label for="ip" class="inplabel">IP Address</label>
+                            <input class="form-control" id="ip" name="ip" placeholder="IP">
+                        </div>
+                        <div class="form-group">
+                            <label for="port" class="inplabel">Port Number</label>
+                            <input class="form-control" id = "port" type="text" name="port" placeholder="Port Number">
+                        </div>
+                    </div>
+
+
+                </div>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+            </div>
+""")))}),format.raw/*67.2*/("""
+"""),format.raw/*68.1*/("""</div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files
+          as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
 
 
 """))}
@@ -62,11 +115,11 @@ Seq[Any](format.raw/*1.39*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Tue Jan 13 17:48:36 IST 2015
+                  DATE: Thu Jan 15 12:59:47 IST 2015
                   SOURCE: /home/rupesh/Downloads/foobar/app/views/index.scala.html
-                  HASH: 4c8a6feb89454c4acf42e68aa98395683a625f0b
-                  MATRIX: 743->1|868->38|896->40|1004->122|1018->128|1069->170|1108->171|1141->177|1400->406|1431->410
-                  LINES: 26->1|29->1|31->3|38->10|38->10|38->10|38->10|39->11|46->18|50->22
+                  HASH: b0396a8119c8f02998b70c5a6f4a19eb4a612858
+                  MATRIX: 743->1|868->38|896->40|1541->657|1570->658|1599->659|1641->673|1670->674|1702->679|1758->707|1787->708|1819->713|1865->732|1893->733|1921->734|2084->870|2099->876|2150->918|2189->919|2225->928|3980->2653|4008->2654
+                  LINES: 26->1|29->1|31->3|48->20|48->20|48->20|48->20|48->20|49->21|49->21|49->21|50->22|51->23|51->23|52->24|57->29|57->29|57->29|57->29|58->30|95->67|96->68
                   -- GENERATED --
               */
           

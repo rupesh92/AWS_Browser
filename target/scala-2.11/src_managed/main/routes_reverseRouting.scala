@@ -1,6 +1,6 @@
 // @SOURCE:/home/rupesh/Downloads/foobar/conf/routes
-// @HASH:3fae3adfb4c909685df4cea58474327e38c79a6a
-// @DATE:Tue Jan 13 16:56:48 IST 2015
+// @HASH:23d5100065e0eea57a1654fd3b8fe798c6d34fcf
+// @DATE:Thu Jan 15 13:20:28 IST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,17 +15,18 @@ import _root_.play.libs.F
 import Router.queryString
 
 
-// @LINE:10
+// @LINE:11
+// @LINE:9
 // @LINE:8
 // @LINE:7
 // @LINE:6
 package controllers {
 
-// @LINE:10
+// @LINE:11
 class ReverseAssets {
 
 
-// @LINE:10
+// @LINE:11
 def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
@@ -35,6 +36,7 @@ def at(file:String): Call = {
 }
                           
 
+// @LINE:9
 // @LINE:8
 // @LINE:7
 // @LINE:6
@@ -55,6 +57,13 @@ def index(): Call = {
 }
                         
 
+// @LINE:9
+def uploadFile(): Call = {
+   import ReverseRouteContext.empty
+   Call("POST", _prefix + { _defaultPrefix } + "fileUpload")
+}
+                        
+
 // @LINE:8
 def showDir(): Call = {
    import ReverseRouteContext.empty
@@ -68,18 +77,19 @@ def showDir(): Call = {
                   
 
 
-// @LINE:10
+// @LINE:11
+// @LINE:9
 // @LINE:8
 // @LINE:7
 // @LINE:6
 package controllers.javascript {
 import ReverseRouteContext.empty
 
-// @LINE:10
+// @LINE:11
 class ReverseAssets {
 
 
-// @LINE:10
+// @LINE:11
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -93,6 +103,7 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:9
 // @LINE:8
 // @LINE:7
 // @LINE:6
@@ -121,6 +132,17 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
+// @LINE:9
+def uploadFile : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.uploadFile",
+   """
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "fileUpload"})
+      }
+   """
+)
+                        
+
 // @LINE:8
 def showDir : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.showDir",
@@ -138,18 +160,19 @@ def showDir : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:10
+// @LINE:11
+// @LINE:9
 // @LINE:8
 // @LINE:7
 // @LINE:6
 package controllers.ref {
 
 
-// @LINE:10
+// @LINE:11
 class ReverseAssets {
 
 
-// @LINE:10
+// @LINE:11
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -158,6 +181,7 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
+// @LINE:9
 // @LINE:8
 // @LINE:7
 // @LINE:6
@@ -173,6 +197,12 @@ def check(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 // @LINE:6
 def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.index(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "index", Seq(), "GET", """ Home page""", _prefix + """""")
+)
+                      
+
+// @LINE:9
+def uploadFile(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.uploadFile(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "uploadFile", Seq(), "POST", """""", _prefix + """fileUpload""")
 )
                       
 

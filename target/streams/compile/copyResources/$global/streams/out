@@ -1,6 +1,6 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(/home/rupesh/Downloads/foobar/conf/evolutions,/home/rupesh/Downloads/foobar/target/scala-2.11/classes/evolutions)[0m
-[0m[[0mdebug[0m] [0m	(/home/rupesh/Downloads/foobar/conf/routes,/home/rupesh/Downloads/foobar/target/scala-2.11/classes/routes)[0m
-[0m[[0mdebug[0m] [0m	(/home/rupesh/Downloads/foobar/conf/application.conf,/home/rupesh/Downloads/foobar/target/scala-2.11/classes/application.conf)[0m
-[0m[[0mdebug[0m] [0m	(/home/rupesh/Downloads/foobar/conf/evolutions/default,/home/rupesh/Downloads/foobar/target/scala-2.11/classes/evolutions/default)[0m
-[0m[[0mdebug[0m] [0m	(/home/rupesh/Downloads/foobar/conf/evolutions/default/1.sql,/home/rupesh/Downloads/foobar/target/scala-2.11/classes/evolutions/default/1.sql)[0m
+[0m[[0mdebug[0m] [0m	(/home/rupesh/Downloads/AWS_Browser/conf/evolutions,/home/rupesh/Downloads/AWS_Browser/target/scala-2.11/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/home/rupesh/Downloads/AWS_Browser/conf/routes,/home/rupesh/Downloads/AWS_Browser/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/rupesh/Downloads/AWS_Browser/conf/application.conf,/home/rupesh/Downloads/AWS_Browser/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/rupesh/Downloads/AWS_Browser/conf/evolutions/default,/home/rupesh/Downloads/AWS_Browser/target/scala-2.11/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/home/rupesh/Downloads/AWS_Browser/conf/evolutions/default/1.sql,/home/rupesh/Downloads/AWS_Browser/target/scala-2.11/classes/evolutions/default/1.sql)[0m

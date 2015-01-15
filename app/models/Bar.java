@@ -4,6 +4,7 @@ import play.db.ebean.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.awt.*;
 
 /**
  * Created by rupesh on 8/1/15.
@@ -15,4 +16,7 @@ public class Bar extends Model {
     public String access;
     public String secret;
     public String bucketName;
+    public Checkbox checkbox;
+    public String ip;
+    public int port;
 }

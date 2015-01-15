@@ -6,16 +6,17 @@ import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.model.ListObjectsRequest;
-import com.amazonaws.services.s3.model.ObjectListing;
-import com.amazonaws.services.s3.model.S3ObjectSummary;
+import com.amazonaws.services.s3.model.*;
 import models.Bar;
+import models.FileContent;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.index;
 import views.html.showDir;
 
+import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 
 import static play.data.Form.form;
@@ -23,10 +24,29 @@ import static play.data.Form.form;
 public class Application extends Controller {
     static ArrayList<String> name;
     static ArrayList<Long> size;
+    static  String accessKey,secretKey,bucketName;
+    static  Checkbox checkBox;
+    static  AmazonS3 conn;
+
     public static Result index() {
         return ok(index.render(null));
     }
 
+    public static Result uploadFile() {
+            Form<FileContent> userForm = form(FileContent.class).bindFromRequest();
+            if (!userForm.hasErrors()) {
+                FileContent files = userForm.get();
+                files.save();
+                File file = (files.uploadfile);
+                System.out.println("file uploaded with a name : "+ file.getName());
+
+                PutObjectRequest putObject = new PutObjectRequest(bucketName, file.getName(), file);
+
+                conn.putObject(putObject);
+            }
+
+        return redirect(routes.Application.showDir());
+    }
 
     public static Result showDir() {
         return ok(showDir.render(name));
@@ -38,26 +58,11 @@ public class Application extends Controller {
         if (!userForm.hasErrors()) {
             Bar bar = userForm.get();
             bar.save();
-            String accessKey = bar.access;
-            String secretKey = bar.secret;
-            String bucketName = bar.bucketName;
-            ClientConfiguration clientConfig = new ClientConfiguration();
-            clientConfig.setProtocol(Protocol.HTTPS);
-            clientConfig.setProxyHost("10.3.100.207");
-            clientConfig.setProxyPort(8080);
-            AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
-            AmazonS3 conn = new AmazonS3Client(credentials, clientConfig);
-
-
-//            System.out.println("Connection setup done");
-//            File file = new File("/home/rupesh/a");
-//            PutObjectRequest putObject = new PutObjectRequest(bucketName, "tryPut", file);
-//            ObjectMetadata metaData = new ObjectMetadata();
-//            metaData.setContentType("application/pdf"); //binary data
-//            putObject.setMetadata(metaData);
-//            conn.putObject(putObject);
-//
-//            System.out.println("folder uploaded");
+            accessKey = bar.access;
+            secretKey = bar.secret;
+            bucketName = bar.bucketName;
+            checkBox = bar.checkbox;
+            AmazonS3 conn = setUpConnection(bar);
             ListObjectsRequest listObjectsRequest = new ListObjectsRequest()
                     .withBucketName(bucketName);
 
@@ -77,6 +82,22 @@ public class Application extends Controller {
         return redirect(routes.Application.showDir());
     }
 
-//
 
+    public static AmazonS3 setUpConnection(Bar bar){
+
+            if(!checkBox.getState()){
+                ClientConfiguration clientConfig = new ClientConfiguration();
+                clientConfig.setProtocol(Protocol.HTTPS);
+                clientConfig.setProxyHost(bar.ip);
+                clientConfig.setProxyPort(bar.port);
+                AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+                conn = new AmazonS3Client(credentials, clientConfig);
+
+            }
+            else{
+                AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+                conn = new AmazonS3Client(credentials);
+            }
+            return conn;
+        }
 }

@@ -1,0 +1,13 @@
+html {
+	overflow-y: scroll;
+}
+
+body {
+	margin: 0;
+	overflow-y: scroll;
+}
+
+.proxyDetails { display:none; }
+.check:checked+.proxyDetails{
+display:block;
+}

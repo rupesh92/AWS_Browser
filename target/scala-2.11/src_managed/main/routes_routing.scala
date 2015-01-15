@@ -1,6 +1,6 @@
 // @SOURCE:/home/rupesh/Downloads/foobar/conf/routes
-// @HASH:3fae3adfb4c909685df4cea58474327e38c79a6a
-// @DATE:Tue Jan 13 16:56:48 IST 2015
+// @HASH:23d5100065e0eea57a1654fd3b8fe798c6d34fcf
+// @DATE:Thu Jan 15 13:20:28 IST 2015
 
 
 import play.core._
@@ -53,13 +53,20 @@ controllers.Application.showDir(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "showDir", Nil,"GET", """""", Routes.prefix + """showdir"""))
         
 
-// @LINE:10
-private[this] lazy val controllers_Assets_at3_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
-private[this] lazy val controllers_Assets_at3_invoker = createInvoker(
+// @LINE:9
+private[this] lazy val controllers_Application_uploadFile3_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("fileUpload"))))
+private[this] lazy val controllers_Application_uploadFile3_invoker = createInvoker(
+controllers.Application.uploadFile(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "uploadFile", Nil,"POST", """""", Routes.prefix + """fileUpload"""))
+        
+
+// @LINE:11
+private[this] lazy val controllers_Assets_at4_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at4_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """bar""","""controllers.Application.check()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """showdir""","""controllers.Application.showDir()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """bar""","""controllers.Application.check()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """showdir""","""controllers.Application.showDir()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """fileUpload""","""controllers.Application.uploadFile()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -91,10 +98,18 @@ case controllers_Application_showDir2_route(params) => {
 }
         
 
-// @LINE:10
-case controllers_Assets_at3_route(params) => {
+// @LINE:9
+case controllers_Application_uploadFile3_route(params) => {
+   call { 
+        controllers_Application_uploadFile3_invoker.call(controllers.Application.uploadFile())
+   }
+}
+        
+
+// @LINE:11
+case controllers_Assets_at4_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at3_invoker.call(controllers.Assets.at(path, file))
+        controllers_Assets_at4_invoker.call(controllers.Assets.at(path, file))
    }
 }
         
