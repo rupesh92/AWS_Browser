@@ -38,24 +38,23 @@ Seq[Any](format.raw/*1.39*/("""
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body class="container">
 <style>
 
-    .proxyDetails """),format.raw/*20.19*/("""{"""),format.raw/*20.20*/(""" """),format.raw/*20.21*/("""display:none; """),format.raw/*20.35*/("""}"""),format.raw/*20.36*/("""
-    """),format.raw/*21.5*/(""".check:checked+.proxyDetails"""),format.raw/*21.33*/("""{"""),format.raw/*21.34*/("""
-    """),format.raw/*22.5*/("""display:block;
-    """),format.raw/*23.5*/("""}"""),format.raw/*23.6*/("""
-"""),format.raw/*24.1*/("""</style>
+    .proxyDetails """),format.raw/*19.19*/("""{"""),format.raw/*19.20*/(""" """),format.raw/*19.21*/("""display:none; """),format.raw/*19.35*/("""}"""),format.raw/*19.36*/("""
+    """),format.raw/*20.5*/(""".check:checked+.proxyDetails"""),format.raw/*20.33*/("""{"""),format.raw/*20.34*/("""
+    """),format.raw/*21.5*/("""display:block;
+    """),format.raw/*22.5*/("""}"""),format.raw/*22.6*/("""
+"""),format.raw/*23.1*/("""</style>
 
     <div class ="container">
         <h1 class="head">Welcome to the S3 Browser</h1>
         <div class="jumbotron">
-        """),_display_(/*29.10*/helper/*29.16*/.form(action = routes.Application.check())/*29.58*/{_display_(Seq[Any](format.raw/*29.59*/("""
-        """),format.raw/*30.9*/("""<form role="form" class="form-horizontal" >
+        """),_display_(/*28.10*/helper/*28.16*/.form(action = routes.Application.check())/*28.58*/{_display_(Seq[Any](format.raw/*28.59*/("""
+        """),format.raw/*29.9*/("""<form role="form" class="form-horizontal" >
                 <div class="form-group">
                      <label for="accessId" class="inplabel">Access ID:</label>
                     <input class="form-control" id="accessId" name="access" placeholder="AccessID">
@@ -92,8 +91,8 @@ Seq[Any](format.raw/*1.39*/("""
             <button class="btn btn-primary" type="submit">Submit</button>
         </form>
             </div>
-""")))}),format.raw/*67.2*/("""
-"""),format.raw/*68.1*/("""</div>
+""")))}),format.raw/*66.2*/("""
+"""),format.raw/*67.1*/("""</div>
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files
           as needed -->
@@ -115,11 +114,11 @@ Seq[Any](format.raw/*1.39*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Thu Jan 15 12:59:47 IST 2015
-                  SOURCE: /home/rupesh/Downloads/foobar/app/views/index.scala.html
-                  HASH: b0396a8119c8f02998b70c5a6f4a19eb4a612858
-                  MATRIX: 743->1|868->38|896->40|1541->657|1570->658|1599->659|1641->673|1670->674|1702->679|1758->707|1787->708|1819->713|1865->732|1893->733|1921->734|2084->870|2099->876|2150->918|2189->919|2225->928|3980->2653|4008->2654
-                  LINES: 26->1|29->1|31->3|48->20|48->20|48->20|48->20|48->20|49->21|49->21|49->21|50->22|51->23|51->23|52->24|57->29|57->29|57->29|57->29|58->30|95->67|96->68
+                  DATE: Thu Jan 29 04:50:28 IST 2015
+                  SOURCE: /home/rupesh/AWSBrowser/app/views/index.scala.html
+                  HASH: fe7f2d3beaa1ba3ffa8288721517c4147958a21b
+                  MATRIX: 743->1|868->38|896->40|1481->597|1510->598|1539->599|1581->613|1610->614|1642->619|1698->647|1727->648|1759->653|1805->672|1833->673|1861->674|2024->810|2039->816|2090->858|2129->859|2165->868|3920->2593|3948->2594
+                  LINES: 26->1|29->1|31->3|47->19|47->19|47->19|47->19|47->19|48->20|48->20|48->20|49->21|50->22|50->22|51->23|56->28|56->28|56->28|56->28|57->29|94->66|95->67
                   -- GENERATED --
               */
           

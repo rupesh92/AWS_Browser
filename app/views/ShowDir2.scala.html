@@ -1,0 +1,46 @@
+@(names : ArrayList[String])
+
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+    <title>S3 Browser</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+
+
+<body class="container">
+
+@helper.form(action = routes.Application.uploadFile()){
+<form>
+    <div class="form-group">
+        <label>Upload a file</label>
+        <input type="file" name="uploadfile">
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+}
+
+<table class="table">
+    <thead>
+    <tr class="row">
+        <th>
+            File Path
+        </th>
+    </tr>
+    </thead>
+    @for((name) <- (names)){
+    <tr class="row">
+        <td>@name</td>
+    </tr>
+    }
+
+</table>
+
+</body>
+</html>

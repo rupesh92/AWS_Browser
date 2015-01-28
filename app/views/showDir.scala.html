@@ -2,43 +2,89 @@
 
 <!DOCTYPE html>
 
-<html>
-<head lang="en">
+<html >
+<head>
     <title>S3 Browser</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
 </head>
 
 
 <body class="container">
 
-@helper.form(action = routes.Application.uploadFile()){
-    <form>
-        <div class="form-group">
-            <label>Upload a file</label>
-            <input type="file" name="uploadfile">
-        </div>
 
-        <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+
+        <div ng-app= "" ng-controller="NamesCtrl">
+
+            <label>Search File</label>
+            <input type="text" data-ng-model="result" list="namesList">
+            <datalist id="namesList">
+                <option data-ng-repeat="n in names" value="{{n}}">
+            </datalist>
+
+        </div>
+        <script>
+                function test(callback){
+                    $.getJSON("http://localhost:9000/getNames" ,function(data){
+
+                                callback(data);
+
+
+                         });
+                }
+
+                function NamesCtrl($scope) {
+                var mydata;
+                    test(function (data){
+                        mydata=JSON.stringify(data).split("\"").join("").replace("[","").replace("]","").split(",");
+                    });
+
+                    alert("All contents of the directory fetched.");
+                 $scope.names=mydata;
+                }
+
+
+    </script>
+
+@helper.form(action = routes.Application.uploadFile()){
+<form>
+
+
+
+
+    <div class="form-group">
+        <label>Upload a file</label>
+        <input type="file" name="uploadfile">
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
 }
+
+
+
 
 <table class="table">
     <thead>
-        <tr class="row">
-            <th>
-                File Path
-            </th>
-        </tr>
+    <tr class="row">
+        <th>
+            File Path
+        </th>
+    </tr>
     </thead>
-        @for((name) <- (names)){
-            <tr class="row">
-                    <td>@name</td>
-            </tr>
-        }
+    @for((name) <- (names)){
+    <tr class="row">
+        <td>@name</td>
+    </tr>
+    }
 
 </table>
 

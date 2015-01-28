@@ -35,11 +35,10 @@ Seq[Any](format.raw/*1.32*/("""
         <title>"""),_display_(/*7.17*/title),format.raw/*7.22*/("""</title>
         <link rel="stylesheet" media="screen" href=""""),_display_(/*8.54*/routes/*8.60*/.Assets.at("stylesheets/main.css")),format.raw/*8.94*/("""">
         <link rel="shortcut icon" type="image/png" href=""""),_display_(/*9.59*/routes/*9.65*/.Assets.at("images/favicon.png")),format.raw/*9.97*/("""">
-        <script src=""""),_display_(/*10.23*/routes/*10.29*/.Assets.at("javascripts/hello.js")),format.raw/*10.63*/("""" type="text/javascript"></script>
     </head>
     <body>
-        """),_display_(/*13.10*/content),format.raw/*13.17*/("""
-    """),format.raw/*14.5*/("""</body>
+        """),_display_(/*12.10*/content),format.raw/*12.17*/("""
+    """),format.raw/*13.5*/("""</body>
 </html>
 """))}
   }
@@ -53,11 +52,11 @@ Seq[Any](format.raw/*1.32*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Tue Jan 13 15:23:23 IST 2015
-                  SOURCE: /home/rupesh/Downloads/foobar/app/views/main.scala.html
-                  HASH: 2161330b6434d5bb9afcd5e16006e0def9590b71
-                  MATRIX: 727->1|845->31|873->33|950->84|975->89|1063->151|1077->157|1131->191|1218->252|1232->258|1284->290|1336->315|1351->321|1406->355|1500->422|1528->429|1560->434
-                  LINES: 26->1|29->1|31->3|35->7|35->7|36->8|36->8|36->8|37->9|37->9|37->9|38->10|38->10|38->10|41->13|41->13|42->14
+                  DATE: Thu Jan 29 04:50:28 IST 2015
+                  SOURCE: /home/rupesh/AWSBrowser/app/views/main.scala.html
+                  HASH: bdca5f162b7b015c3f5014ee4cdcd83716390743
+                  MATRIX: 727->1|845->31|873->33|950->84|975->89|1063->151|1077->157|1131->191|1218->252|1232->258|1284->290|1346->325|1374->332|1406->337
+                  LINES: 26->1|29->1|31->3|35->7|35->7|36->8|36->8|36->8|37->9|37->9|37->9|40->12|40->12|41->13
                   -- GENERATED --
               */
           

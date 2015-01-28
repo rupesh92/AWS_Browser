@@ -6,10 +6,14 @@ import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.model.*;
+import com.amazonaws.services.s3.model.ListObjectsRequest;
+import com.amazonaws.services.s3.model.ObjectListing;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.S3ObjectSummary;
 import models.Bar;
 import models.FileContent;
 import play.data.Form;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.index;
@@ -82,7 +86,11 @@ public class Application extends Controller {
         return redirect(routes.Application.showDir());
     }
 
+    public static Result getNames(){
 
+        return ok(Json.toJson(name));
+
+    }
     public static AmazonS3 setUpConnection(Bar bar){
 
             if(!checkBox.getState()){

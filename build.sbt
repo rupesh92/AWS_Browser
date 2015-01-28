@@ -1,6 +1,4 @@
-import play.PlayJava
-
-name := """foobar"""
+name := """AWSBrowser"""
 
 version := "1.0-SNAPSHOT"
 
